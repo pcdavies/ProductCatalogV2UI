@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/alpha.css" />
+        <title>Aplha Office Product Listing</title>
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="js/alphaOffice.js"></script>
+
+    </head>
+    <body>
+        <div id="title">
+            <h1>Alpha Office Supply</h1>
+        </div>
+        
+        <div id="productDiv">
+       
+        </div>
+            
+        <!-- IMPORTANT: Do not alter the table below in any way (including the "style" property).  This table is used as a popup and as a "template" 
+        for all the product pannels.  Using it for both insures the animation is correct.  All the syntax must stay as is-->     
+        <table id="popupTable" class="popupTable" style="position: absolute;visibility:hidden;">
+            <tr>
+                <td></td>
+                <td></td>
+                <td><img src="Images/spacer.png" class="popupProductC3R1Spacer" /></td>
+                <td><img src="Images/spacer.png" id="popupProductC4R1Spacer" class="popupProductC4R1Spacer" /></td>
+            </tr>
+            <tr>
+                <td><img src="Images/spacer.png" class="popupProductC1R2Spacer" /></td>
+                <td><div id="popupProductContentDiv" class="productContentDiv">~</div></td>
+                <td></td>                
+                <td id="popupTwitterContentTd" rowspan="2"></td>
+            </tr>
+            <tr>
+                <td><img src="Images/spacer.png" id="popupProductC1R3Spacer" class="popupProductC1R3Spacer"/></td>            
+                <td id="popupControlTd"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><img src="Images/spacer.png" class="popupProductC1R4Spacer" /></td>            
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>            
+        </table>
+        <!-- IMPORTANT: Do not alter the table above.  See above.-->
+        
+        <!-- All divs below hold html code that is extracted and dynamically written by javascript -->
+        <div id="popupControlTdFillerDiv" class="fillerDiv">
+            <div class="popupControlDiv">
+                <label id="tweetNumberLabel"></label><br />
+                <table class="popupControlTable">
+                    <tr class="regularTr">
+                        <td colspan="3" >Sort By</td>
+                    </tr>            
+                    <tr class="regularTr">
+                        <td class="sortLabelTdLeft">Name</td>
+                        <td class="sortLabelTdMiddle">Text</td>
+                        <td class="sortLabelTdRight">Date</td>
+                    </tr>            
+                    <tr>
+                        <td colspan="3"><input id="sortChoice" type="range" min="1" max="3" step="1" value="1" onmousemove="buildTwitterHTML(this.value)"/></td>
+                    </tr>           
+                </table>
+                <button onclick="hidePopup()">Close</button>        
+            </div>
+        </div>
+        
+        <div id="tweetTableFillerDiv" class="fillerDiv">               
+            <table class="tweetTable">
+                <tr>               
+                    <td class="tweetRow1LeftTd">
+                    <span class="tweetNameSpan">~NAME~</span><br /><span class="tweetScreennameSpan">~SCREENNAME~</span></td>
+                    <td class="tweetRow1MiddleTd"><img src="Images/blueACircle.png" class="blueACircle" title="Part of the AlphaOffice Big Data Initiative"/></td> 
+                    <td class="tweetRow1RightTd">                        
+                        <label onclick="window.open('https://twitter.com/~FOLLOWSCREENNAME~', '_blank');" class="tweetFollowButton" title="Follow">
+                            <img src="Images/twitterBlue.png" />Follow
+                        </label>                        
+                    </td>               
+                </tr>
+                <tr>
+                    <td colspan="3" class="tweetRow2Td">~TEXT~</td>                
+                </tr>
+                <tr>
+                    <td colspan="3" class="tweetRow3Td">~DATE~</td>                
+                </tr>
+                <tr>
+                    <td colspan="3" class="tweetRow4Td">
+                    <div class="repliesLikesDiv">
+                        <img src="Images/twitterReply.png" title="Reply" />~REPLIES~
+                        <img src="Images/twitterRetweet.png" title="Retweet" />~RETWEETS~                   
+                        <img src="Images/twitterLike.png" title="Like" />~LIKES~
+                    </div>                       
+                    </td>                
+                </tr>
+            </table>
+        </div>        
+        
+        <div id="noMySQLRESTURLFillerDiv" class="fillerDiv">
+            <div class="annoucementDiv">
+                <div class="annoucementInnerDiv">
+                    You have not yet replaced the URL for the MySQL database REST service with the appropriate one for your deployment environment.
+                </div>
+            </div>
+        </div>        
+                          
+    </body>
+</html>
