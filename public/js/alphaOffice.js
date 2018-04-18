@@ -47,8 +47,6 @@ var tweetTableTemplateVar;
 
 $(document).ready(function () {
 
-    document.getElementById("productDiv").innerHTML = document.getElementById("noMySQLRESTURLFillerDiv").innerHTML;
-
     $.get('endpoints', function(data) {
 
       console.log('Got REST URLs from server: ' + JSON.stringify(data));
@@ -64,8 +62,8 @@ $(document).ready(function () {
           catch(err){
               console.log("Error retrieving the Product data from the JSON Endpoint.");
           }
-      });
-    });
+      }).fail( () => document.getElementById("productDiv").innerHTML = document.getElementById("noMySQLRESTURLFillerDiv").innerHTML );
+    }).fail( () => document.getElementById("productDiv").innerHTML = document.getElementById("noMySQLRESTURLFillerDiv").innerHTML );
 
 
     // Build HTML from the JSON Feed.
